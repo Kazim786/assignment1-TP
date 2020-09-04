@@ -55,7 +55,21 @@
             beg = remove(beg)
             const begArr = beg.split(" ")
             const ans1 = document.getElementById("ans1")
-            ans1.innerHTML = `Number of words are ${begArr.length}`
+
+            const letsCount = (array) => {
+          let count = 0;
+          for(let i = 0; i < array.length; i++){
+            if(array[i] !== ""){
+              count = count + 1
+            }
+          }
+          return count
+        }
+        
+        let wordCount = letsCount(begArr)
+
+
+            ans1.innerHTML = `Number of words are ${wordCount}`
     //
     // ***(2) store words in the string "beg" in an array. 
     // ***    show the first and last elements of the array in the span block with id="ans2"
