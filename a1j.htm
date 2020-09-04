@@ -120,10 +120,41 @@
         ans4.innerHTML = `Here is every word separated by a comma: ${begArr.join().toUpperCase()}`
 
     //
-    
-    //
     // ***(5)  count the number of times the letters "a", "e", "i", "o", "u" appear in the string "beg"
     // ***     show these 5 counts on one line separated by commas in the span block  with id="ans5"
+
+            const countingVowels = (string) => {
+                let aCount = 0;
+                let eCount = 0;
+                let iCount = 0;
+                let oCount = 0;
+                let uCount = 0;
+                const countArray = []
+                const lettersOfBeg = beg.split("")
+
+                for(let i = 0; i < lettersOfBeg; i++){
+                    if(lettersOfBeg[i] === 'a'){
+                        aCount = aCount + 1;
+                        countArray.push(aCount)
+                    }
+                    else if(lettersOfBeg[i] === 'e'){
+                        eCount = eCount + 1
+                        countArray.push(eCount)
+                    }
+                    else if(lettersOfBeg[i] === 'i'){
+                        iCount = iCount + 1
+                        countArray.push(iCount)
+                    }
+                    else if(lettersOfBeg[i] === 'o'){
+                        oCount = oCount + 1
+                        countArray.push(oCount)
+                    }
+                    else if(lettersOfBeg[i] === 'u'){
+                        uCount = uCount + 1
+                        countArray.push(uCount)
+                    }
+                }
+            }
     //
     
     //
