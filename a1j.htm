@@ -52,6 +52,7 @@
     // ***    show the answer in the span block  with id = "ans1"
     //
             //Might have to use length
+            beg = remove(beg)
             const begArr = beg.split(" ")
             const ans1 = document.getElementById("ans1")
             ans1.innerHTML = `Number of words are ${begArr.length}`
@@ -94,6 +95,8 @@
     // ***(3) show each word in the array produced in (2) above on one line separated by commas
     // ***    in the span block  with id="ans3"
     //
+            const ans3 = document.getElementById("ans3")
+            ans3.innerHTML = `Here is every word separated by a comma: ${begArr}`
     
     //
     // ***(4) create a new string using the value of "beg" where all the characters are capitalized
