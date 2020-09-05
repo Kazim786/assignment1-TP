@@ -123,39 +123,65 @@
     // ***(5)  count the number of times the letters "a", "e", "i", "o", "u" appear in the string "beg"
     // ***     show these 5 counts on one line separated by commas in the span block  with id="ans5"
 
-            const countingVowels = (string) => {
-                let aCount = 0;
-                let eCount = 0;
-                let iCount = 0;
-                let oCount = 0;
-                let uCount = 0;
-                const countArray = []
-                const lettersOfBeg = string.split("")
+    const countingVowels = (string) => {
+              // let aCount = 0;
+              // let eCount = 0;
+              // let iCount = 0;
+              // let oCount = 0;
+              // let uCount = 0;
+              const countObj = {}
+              const lettersOfBeg = string.split("")
 
-                for(let i = 0; i < lettersOfBeg; i++){
-                    if(lettersOfBeg[i] === 'a'){
-                        aCount = aCount + 1;
-                        countArray.push(aCount)
+              for(let letter of lettersOfBeg){
+                  if(letter === 'a'){
+                      // aCount = aCount + 1;
+                      if(!countObj[letter]){
+                        countObj[letter] = 1
+                      }
+                      else{
+                        countObj[letter]++
+                      }
+                  }
+                  if(letter === 'e'){
+                    // aCount = aCount + 1;
+                    if(!countObj[letter]){
+                      countObj[letter] = 1
                     }
-                    else if(lettersOfBeg[i] === 'e'){
-                        eCount = eCount + 1
-                        countArray.push(eCount)
-                    }
-                    else if(lettersOfBeg[i] === 'i'){
-                        iCount = iCount + 1
-                        countArray.push(iCount)
-                    }
-                    else if(lettersOfBeg[i] === 'o'){
-                        oCount = oCount + 1
-                        countArray.push(oCount)
-                    }
-                    else if(lettersOfBeg[i] === 'u'){
-                        uCount = uCount + 1
-                        countArray.push(uCount)
+                    else{
+                      countObj[letter]++
                     }
                 }
-                return countArray
+                if(letter === 'i'){
+                  // aCount = aCount + 1;
+                  if(!countObj[letter]){
+                    countObj[letter] = 1
+                  }
+                  else{
+                    countObj[letter]++
+                  }
+              }
+              if(letter === 'o'){
+                // aCount = aCount + 1;
+                if(!countObj[letter]){
+                  countObj[letter] = 1
+                }
+                else{
+                  countObj[letter]++
+                }
             }
+            if(letter === 'u'){
+              // aCount = aCount + 1;
+              if(!countObj[letter]){
+                countObj[letter] = 1
+              }
+              else{
+                countObj[letter]++
+              }
+          }
+              }
+              // console.log(countObj['a'])
+              return countObj
+          }
     //
     
     //
