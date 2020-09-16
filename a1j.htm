@@ -195,16 +195,18 @@ ans5.innerHTML = `${countingVowels(beg)}}`
     // ***(6)  show the location of each occurence of the character "e" in the string "beg"
     // ***     on one line separated by commas in the span block  with id="ans6"
     //
-    let six2 = beg.split("");
-            let six = [];
-            for(let i = 0; six2.length; i++){
-                if(six2[i] === "e"){
-                    six.push(i)
-                }
-            }
-
-            const ans6 = document.getElementById("ans6");
-            ans6.innerHTML = six;
+    var six2=beg.split("");
+var six = [];
+    for(i=0;i<six2.length;i++)
+    {
+        if (six2[i] == "e")
+        {
+            six.push(i);
+        }
+    }
+// ans6.innerHTML = six;
+const ans6 = document.getElementById("ans6")
+        ans6.innerHTML = six
     
     //
     // ***(7)  show the location where each word begins in the string named "beg" 
