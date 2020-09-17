@@ -212,8 +212,24 @@ const ans6 = document.getElementById("ans6")
     // ***(7)  show the location where each word begins in the string named "beg" 
     // ***     show the answers on one line separated by commas in the span block  with id="ans7"
     //
-    
-    
+    const beginning = (string) => {
+              const arr = string.split("")
+              const position = []
+              // console.log(arr)
+              position.push(0)
+              for(let i = 0; i < arr.length; i++){
+                
+                if(arr[i] === " "){
+                  position.push(i+1)
+                  console.log(position)
+                }
+              }
+              return position
+            }  
+      beginning(beg)
+
+
+
     //
     // ***(8) place the words in the string "beg" in a table with a one pixel border,
     // ***    with a gray backgound. Use only ten cells per row. Empty cells should contain
