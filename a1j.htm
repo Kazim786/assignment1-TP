@@ -228,6 +228,24 @@ const ans6 = document.getElementById("ans6")
             }  
       beginning(beg)
 
+      //Afrah's code:
+        
+      sev = beg.split("");
+sev2 = [];
+for(i=0;i<sev.length;i++)
+{
+  if(sev[i] !== " " && i == 0)
+  {
+    sev2.push(i);
+  }
+  else if(sev[i] !== " " && sev[i-1] == " ")
+  {
+    sev2.push(i);
+  }
+}
+
+ans7.innerHTML = sev2;
+
 
 
     //
