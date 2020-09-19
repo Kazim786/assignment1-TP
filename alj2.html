@@ -5,10 +5,9 @@
     body {font-family:Comic Sans MS;}
     </style>
     <script language="javascript">
-
-    function fred() {
-
-
+    <!--
+    function fred()
+    {
     
     //
     // There are 25 questions related to the HTML objects shown on the page
@@ -31,295 +30,239 @@
     //
     // *** First remove all the periods, commas and hyphens from the "beg" string before you answer questions 1 through 15
     //
-
-    
-
-    // const remove = (string) => {
-    // for(let i = 0; i < string.length; i++){
-    // if(string[i] === "."){
-    // string = string.replace('.', ' ')
-    // }
-    // else if(string[i] === ","){
-    // string = string.replace(',', ' ')
-    // }
-    // else if(string[i] === "--"){
-    // string = string.replace('--', ' ')
-    // }
-    // else if(string[i] === ", "){
-    //     string = string.replace(", ", ' ')
-    // }
-    // }         
-    // return string
-    //     }
-
-    //         console.log(remove(beg))
-
-    //Ashton's Code:
-    while(beg.indexOf(".") > -1)
-	{
-		beg = beg.replace(".", "");
-	}	
-
-while(beg.indexOf(",") > -1)
-	{
-		beg = beg.replace(",", "");
-	}
-
-while(beg.indexOf("-") > -1)
-	{
-		beg = beg.replace("-", "");
-    } 
-    console.log(beg);
+    while(beg.indexOf(", ")>-1)
+    {
+      beg=beg.replace(", "," ");
+    }
+    while(beg.indexOf(",")>-1)
+    {
+      beg=beg.replace(","," ");
+    }
+    while(beg.indexOf(".")>-1)
+    {
+      beg=beg.replace(".","");
+    }
+      while(beg.indexOf("-")>-1)
+    {
+      beg=beg.replace("-","");
+    }
+              
     
     //
     // ***(1) how many words are the string named "beg"? (words not characters)
     // ***    show the answer in the span block  with id = "ans1"
     //
-            //Might have to use length
-
-
-            // beg = remove(beg)
-            // const begArr = beg.split(" ");
-            // // console.log(begArr);
-            // // for(let i = 0; i < begArr.length)
-
-            // begArr.length; 
-            // const ans1 = document.getElementById("ans1");
-
-    //         beg_arr = beg.split(" ");
-	// numWords = beg_arr.length;
-
-    // ans1.innerHTML = numWords;
+     var one = beg.split(" ");
     
-    a = beg.split(" ")
-    ans1.innerHTML = a.length;
-
-        //     const letsCount = (array) => {
-        //     let count = 0;
-        //     for(let i = 0; i < array.length; i++){
-        //     if(array[i] !== ""){ 
-        //         count = count + 1
-        //     }
-        //     }
-        //     return count
-        // }
-        
-        // let wordCount = letsCount(begArr)
-        // ans1.innerHTML = `Number of words are ${begArr.length}`;
+    ans1.innerHTML = one.length;
     //
     // ***(2) store words in the string "beg" in an array. 
-    // ***    show the first and last elements of the array in the span block with id="ans2"
-    //
-        // const begArr = beg.split(" ")
-        let last = begArr[begArr.length-1]
-        let first = begArr[0]
-        const removeInArr = (array) => {
-        for(let i = 0; i < array.length; i++){
-        if(array[i] === "."){
-        array[i] =  ' '
-        }
-        else if(array[i] === ","){
-        array[i] = ' '
-        }
-        else if(array[i] === "-"){
-        array[i] = ' '
-        }
-        }         
-        return array
-            }
+    // ***    show the first and last elements of the array in the span block with id=ans2;
       
-            console.log(removeInArr(begArr))
-
-            last = begArr[begArr.length-1]
-            first = begArr[0]
-
-            console.log(last)
-            console.log(first)
-            console.log(begArr)
-
-            const ans2 = document.getElementById("ans2")
-            ans2.innerHTML = `First element is ${first} and last is ${last}`
-
-            //Last element is white space. Not sure if that is gonna count
+      var two = beg.split(" ");
+     
+      ans2.innerHTML = two[0] + " "+two[two.length-1];
+      
+    //
+    
     //
     // ***(3) show each word in the array produced in (2) above on one line separated by commas
     // ***    in the span block  with id="ans3"
-    //
-            const ans3 = document.getElementById("ans3")
-            ans3.innerHTML = `Here is every word separated by a comma: ${begArr}`
     
-    //
+     for(i=0;i<two.length;i++)
+     {   
+              while(two[i].indexOf("\n")>-1)
+                {
+                     two[i] =two[i].replace("\n","");
+                }
+     } 
+    ans3.innerHTML = two;
+      
+      
     // ***(4) create a new string using the value of "beg" where all the characters are capitalized
     // ***    show the new string  in the span block  with id="ans4"
-        //USE MAP MAYBE?
-        const ans4 = document.getElementById("ans4")
-            
-        begArr.join().toUpperCase()
-        ans4.innerHTML = `Here is every word separated by a comma: ${begArr.join().toUpperCase()}`
-
+    var four = beg.toUpperCase(); 
+    ans4.innerHTML = four;  
     //
     // ***(5)  count the number of times the letters "a", "e", "i", "o", "u" appear in the string "beg"
     // ***     show these 5 counts on one line separated by commas in the span block  with id="ans5"
-
-    const countingVowels = (string) => {
-              // let aCount = 0;
-              // let eCount = 0;
-              // let iCount = 0;
-              // let oCount = 0;
-              // let uCount = 0;
-              const countObj = {}
-              const lettersOfBeg = string.split("")
-
-              for(let letter of lettersOfBeg){
-                  if(letter === 'a'){
-                      // aCount = aCount + 1;
-                      if(!countObj[letter]){
-                        countObj[letter] = 1
-                      }
-                      else{
-                        countObj[letter]++
-                      }
-                  }
-                  if(letter === 'e'){
-                    // aCount = aCount + 1;
-                    if(!countObj[letter]){
-                      countObj[letter] = 1
-                    }
-                    else{
-                      countObj[letter]++
-                    }
-                }
-                if(letter === 'i'){
-                  // aCount = aCount + 1;
-                  if(!countObj[letter]){
-                    countObj[letter] = 1
-                  }
-                  else{
-                    countObj[letter]++
-                  }
-              }
-              if(letter === 'o'){
-                // aCount = aCount + 1;
-                if(!countObj[letter]){
-                  countObj[letter] = 1
-                }
-                else{
-                  countObj[letter]++
-                }
-            }
-            if(letter === 'u'){
-              // aCount = aCount + 1;
-              if(!countObj[letter]){
-                countObj[letter] = 1
-              }
-              else{
-                countObj[letter]++
-              }
-          }
-              }
-              // console.log(countObj['a'])
-              return `a: ${countObj['a']}, e: ${countObj['e']}, i: ${countObj['i']}, o: ${countObj['o']}, u: ${countObj['u']} `
-          }
-//
-countingVowels(beg)
-const ans5 = document.getElementById("ans5")
-ans5.innerHTML = `${countingVowels(beg)}}`
     //
-    
+      var arr=[0,0,0,0,0];
+      var five2 = beg.toLowerCase();
+      var five =  five2.split("");
+      for(i=0;i<five.length;i++)
+        {
+              if (five[i] == "a")
+                        {
+                               arr[0]++;
+                        }
+          if (five[i] == "e")
+                        {
+                               arr[1]++;
+                        }
+          if (five[i] == "i")
+                        {
+                               arr[2]++; 
+                        }
+          if (five[i] == "o")
+                        {
+                               arr[3]++;
+                        }
+           if (five[i] == "u")
+                        {
+                               arr[4]++;
+                        }
+        }
+      
+    ans5.innerHTML = arr;
+      
     //
     // ***(6)  show the location of each occurence of the character "e" in the string "beg"
     // ***     on one line separated by commas in the span block  with id="ans6"
-    //
-    var six2=beg.split("");
-var six = [];
-    for(i=0;i<six2.length;i++)
-    {
-        if (six2[i] == "e")
+     var six2=beg.split("");
+    var six = [];
+      for(i=0;i<six2.length;i++)
         {
-            six.push(i);
+          if (six2[i] == "e")
+            {
+              six.push(i);
+            }
         }
-    }
-// ans6.innerHTML = six;
-const ans6 = document.getElementById("ans6")
-        ans6.innerHTML = six
-    
+    ans6.innerHTML = six;
     //
     // ***(7)  show the location where each word begins in the string named "beg" 
     // ***     show the answers on one line separated by commas in the span block  with id="ans7"
     //
-    const beginning = (string) => {
-              const arr = string.split("")
-              const position = []
-              // console.log(arr)
-              position.push(0)
-              for(let i = 0; i < arr.length; i++){
-                
-                if(arr[i] === " "){
-                  position.push(i+1)
-                  console.log(position)
-                }
+     var sev = [];
+    var seven = beg.split("");
+      for (i=0; i<seven.length;i++)
+        {
+          if (i == 0 && seven[i]!== " ")
+                  {
+                sev.push(i);
               }
-              return position
-            }  
-      beginning(beg)
-
-      //Afrah's code:
-        
-      sev = beg.split("");
-sev2 = [];
-for(i=0;i<sev.length;i++)
-{
-  if(sev[i] !== " " && i == 0)
-  {
-    sev2.push(i);
-  }
-  else if(sev[i] !== " " && sev[i-1] == " ")
-  {
-    sev2.push(i);
-  }
-}
-
-ans7.innerHTML = sev2;
-
-
-
+          if (seven[i] == " ")
+            {
+              sev.push(i+1);
+            }
+        }
+      ans7.innerHTML = sev;
+    
     //
     // ***(8) place the words in the string "beg" in a table with a one pixel border,
     // ***    with a gray backgound. Use only ten cells per row. Empty cells should contain
     // ***    the word "null". Show the table in the span block with id="ans8"
     //
-    
+    eight = beg.split(" ");
+      os= "<table border = 1 style='background: gray'>";
+      for(i=0;i<eight.length/10;i++)
+        {
+          os += "<tr>";
+          for(j=0; j<10; j++)
+            {
+              if(eight[(i*10)+j]== undefined)
+                {
+                  os+= "<td> null </td>";
+                }
+              else
+              {	
+                os+="<td>" + eight[(i*10)+j] + "</td>";
+              }
+            }
+        
+                os+= "</tr>"; 
+        }
+      os += "</table>";  
+      
+        
+      ans8.innerHTML = os;
+      
+      
     //
     // ***(9)  replace each occurence of the blank character in "beg" with the character "*"
     // ***     show the result in the span block  with id="ans9"
     //
+       
+    var nine = beg;
+      while(nine.indexOf(" ")>-1)
+    {
+      nine=nine.replace(" ","*");
+    }
+      
+    ans9.innerHTML = nine;
     
     //
     // ***(10)  sort the words in array created in (2) into alphabetical order
     // ***      show the results in the span block with id="ans10" on a single line
     //
-    
+      for(i=0;i<two.length; i++)
+        {
+          two[i]=two[i].toLowerCase();
+        }
+    ans10.innerHTML = two.sort();
     //
     // ***(11)  show the ASCII character number of each character in the string "beg"
     // ***      separate each value with a comma and place the result on a single line in the span block
     // ***      with id="ans11"
+      
+      var eleven = [];
+      var eleven2 = beg.split("")
+      for(i=0; i < eleven2.length; i++)
+        {
+          ert = eleven2[i];
+          c = ert.charCodeAt(0);
+           eleven.push(c);   
+        }
+     
+      ans11.innerHTML = eleven2;
     //
     
     //
     // ***(12)  count the number of words in the string "beg" that have 2,3,4,5 or 6 characters
     // ***      show these five counts on a single line separated by commas in the span block with id="ans12"
     //
-    
+    var twelve = [0,0,0,0,0];
+    var twelve2 = beg.split(" ");
+      for(i=0; i<twelve2.length; i++)
+        {
+              if(twelve2[i].length==2)
+              twelve[0]++;
+              
+                
+          
+        }
+      ans12.innerHTML = twelve;
+      
     //
     // ***(13)  create a new string that contains the words in the string "beg" in reverse order
     // ***      show this new string on a single line in the span block with id="ans13"
     //
+    var thirteen = beg.split(" ");
+     var thirteen2 = []; 
+      
+      for(i=0;i<thirteen.length;i++)
+       {  
+           tt = thirteen[i].split("");
+         t2 = " ";
+             for(j = tt.length-1;j>=0;j--)
+            {
+              t2+=tt[j];
+            }
+           
+         thirteen2.push(t2);
+       }
+      
     
+        ans13.innerHTML = thirteen2.join(" ");
+     
+             
+             
     //
     // ***(14)  create a new string that contains the characters in the string "beg" in all capital letters
     // ***      show this new string on a single line in the span block with id="ans14"
     //
-    
+      fourteen = beg.toUpperCase();
+      ans14.innerHTML = fourteen;
     //
     // ***(15)  store the number of times the letter "a" appears in the string "beg" in 1st location;
     // ***      store the number of times the letter "b" appears in the string "beg" in 2nd location;
@@ -328,62 +271,177 @@ ans7.innerHTML = sev2;
     // ***      etc.
     // ***      show the 26 counts on one line separated by commas in the span block with id="ans15"
     //
+    fifteen = []
+    for(i=0;i<26;i++)
+        {
+        fifteen[i] = 0;
+      } 
+    beg15 = beg.toLowerCase();
+    beg15.split("");
+    for(i=0;i<beg15.length;i++)
+    {
+      fifteen[beg15[i].charCodeAt(0) - 97]++;
+    }
     
+    ans15.innerHTML = fifteen;
+     
     //
     // ***(16)  Examine the radio buttons and produce a list of the three "values" of the radios buttons separated by commas on a single line
     //         in the span block with id="ans16"
-    
+        var theform=document.twocities;
+      sixteen2 = [];
+        for(i=1;i<4;i++)
+      {
+        sixteen2.push(theform.elements[i].value);
+      }
+      ans16.innerHTML = sixteen2;
     //
     // ***(17)  Show the value of the radio button which is checked and its elements number separated by a comma on a line by itself
     // ***      in the span block with id="ans17"
     //
+      seventeen = [];
+      for(i=1; i<4;i++)
+        {
+          if(theform.elements[i].checked)
+         {
+            seventeen.push(theform.elements[i].value);
+            seventeen.push(i);
+         }
+        }
+       ans17.innerHTML = seventeen;
     
     //
     // *** (18) Show the elements number and value of the six checkboxes in a six-row, two-column table with a 2 pixel border
     // ***      in the span block with id="ans18"
     //
+      
+      
+      var chapters = document.twocities;
+      os = "<table border = 2>";
+      for (i = 4; i <= 9; i++)
+        {
+          os += "<tr>";
+          os += "<td>" + i + "</td>";
+       
+          os += "<td>" + chapters.elements[i].value + "</td>";
+          
+        }
+      os+= "</table>";
+       ans18.innerHTML = os;
     
+      
     //
     // ***(19)  Examine the checkboxes and produce a list of the "values" of the checkboxes that are checked. Separated the values by commas on a single line
     //
+      
+      
+      var nineteen = [];
+      for(i = 4; i <= 9; i++)
+        {
+          if(chapters.elements[i].checked)
+            {
+            nineteen.push(chapters.elements[i].value);
+            
+            }
+        }
+       ans19.innerHTML = nineteen;
     
     //
     // ***(20)  Show the values of all the options in the select (drop down menu) named "book3chapters" in an fifteen-column one row table with a 2 pixel border border
     // ***      in the span block with id="ans20"
     //
+      twenty = document.twocities.book3chapters;
+      os= "<table border = 2>";
+      
+          os += "<tr>"; 
+          for(j = 0; j <15; j++)
+          {
+            os += "<td>" + twenty.options[j].text + "</td>";
+          }
+      os += "</tr>";
+      os += "</table>";
+      ans20.innerHTML = os; 
     
     //
     // ***(21)  Show the value of the select (drop down menu) named "book3chapters" which is selected and its selectedIndex value separated by a comma on a line by itself
     // ***      in the span block with id="ans21"
     //
-    
+    var twentyone = [];
+     for( i = 0; i < 15; i++)
+       {
+         if(twenty.selectedIndex == i)
+         {
+           twentyone.push(twenty.options[i].text);
+           twentyone.push(i);
+         }
+     
+       }
+     ans21.innerHTML = twentyone;    
+      
+      
     //
     // *** Retrieve the value of the textarea named "beg" again and store it in a variable named "beg2", DO NOT REMOVE ANY CHARACTERS
     // *** You will use this string for questions 22 and 23 
     
+     var beg2 = document.twocities.begins.value;
     //
     // *** (22) Show the text phrases that are separated by commas in the string "beg2" . Each phrase should be on a line by itself.
     // ***      Place the result in the span block with id="ans22"
     //
-    
+    var twentytwo = beg2.split(",");
+     
+     ans22.innerHTML =  twentytwo.join(",<br>");
+      
+      
     //
     // *** (23) Capitalize the first letter of each phrase from #22 bove (phrases are separated by commas) in the original string "beg2". 
     // ***      Place each phrase should be on a line by itself. 
-    // ***      Place the result in the span block with id="ans23"
+    // ***      Place the result in the span block with 
+      
+      for(i = 0 ; i< twentytwo.length; i++)
+       {
+        
+         var twentythree = twentytwo[i].split("");
+             for(j = 0; j<twentythree.length; j++)
+            {
+              if(twentythree[j].charCodeAt(0)>=65)
+                {
+                  twentythree[j] = twentythree[j].toUpperCase();
+                  break;
+                }
+              
+            }
+         twentytwo[i]=twentythree.join("");
+       } 
+      
+      
+     ans23.innerHTML =  twentytwo.join(",<br>");
     //
     //
     // *** (24) Make the third radio button ("The Track of The Storm") checked.
     // ***      Make ALL six of the checkboxes be checked.
     // ***      Make the select named "book3chapters" (the drop down menu) show "Fifty-Two" as the selection
     // ***      Place the string "DONE!" in the span block with id="ans24"
-    
+     document.twocities.books[2].checked="true";
+    var aa = document.twocities;
+      for(i = 4; i <=9; i++)
+        {
+          aa.elements[i].checked="true";
+        }
+      aa.book3chapters.selectedIndex = 12;
+      
+        
+      
+      
+      
+    ans24.innerHTML =  "DONE!"
     //
     // *** (25) Place the famous last line of the book (without quotes) in the span block with id="ans25"
     //
-    
+    ans25.innerHTML =  "It is a far, far better thing that I do, than I have ever done; it is a far, far better rest that I go to than I have ever known."
     
     }
- 
+    -->
     </script>
     </head>
     <body>
